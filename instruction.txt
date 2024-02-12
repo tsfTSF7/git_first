@@ -1,0 +1,31 @@
+1:AuthModule（认证模块）
+OAuthService: 处理OAuth2授权流程，包括获取、刷新令牌等。
+    get_access_token: 获取OAuth2的访问令牌。
+    validate_token: 验证提供的访问令牌是否有效。
+    DatabaseModule（数据库模块）
+
+2:ThirdPartyConfigRepository: 存储和查询第三方平台配置信息。
+store_config: 存储第三方平台的配置和资源权限信息。
+    fetch_config: 根据平台ID获取第三方平台的配置信息。
+    update_config: 更新第三方平台的配置信息。
+    ThirdPartyInteractionModule（第三方交互模块）
+
+3:ThirdPartyAPI: 提供与第三方服务接口交互的功能。
+call_api: 发送HTTP请求到第三方服务API，接收并解析响应数据。
+    purchase_data: 执行数据购买操作。
+    share_data: 将数据通过API分享给第三方平台。
+    ResourceAccessControlModule（资源访问控制模块）
+
+4:PermissionChecker: 检查第三方平台对特定资源的访问权限。
+check_permission: 根据平台配置信息判断是否具有访问某个资源的权限。
+    RoutesModule（路由模块）
+
+5:ThirdPartyRoutes: 定义FastAPI路由，处理第三方平台的请求。
+access_navigation_system_route: 根据第三方请求返回车载导航系统数据的路由处理函数。
+    ModelsModule（模型模块）
+
+6:定义如ThirdPartyConfig、NavigationDataRequest、NavigationDataResponse等数据模型类。
+UtilsModule（工具模块）
+
+7:UtilsModule（工具模块）
+包含通用函数，如JSON序列化和反序列化、错误处理、日志记录等
